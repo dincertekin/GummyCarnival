@@ -9,6 +9,12 @@ public class CharacterController : MonoBehaviour
 	private Vector3 movement;
     public float interactionDistance = 3f;
 
+	// public string EffectTypes = [
+	// 	EffectType.Nane,
+	// 	EffectType.Bogurtlen,
+
+	// ];
+
 	public Vector3[] boothCoords = new Vector3[] {
 		new Vector3(5.392f, 0.313f, -10.281f),
 		new Vector3(15.01f, 0.325f, -10.29f),
