@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-	public float movementSpeed = 3f;
+	private float movementSpeed = 3f;
 	private Rigidbody rb;
 	private Vector3 movement;
-    public float interactionDistance = 3f;
+    private float interactionDistance = 3f;
 
-	// public string EffectTypes = [
-	// 	EffectType.Nane,
-	// 	EffectType.Bogurtlen,
+	private Animator anim;
 
-	// ];
-
-	public Vector3[] boothCoords = new Vector3[] {
+	private Vector3[] boothCoords = new Vector3[] {
 		new Vector3(5.392f, 0.313f, -10.281f),
 		new Vector3(15.01f, 0.325f, -10.29f),
 		new Vector3(23.93f, 0.325f, -10.29f)
@@ -24,6 +20,7 @@ public class CharacterController : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
+		anim = GetComponent<Animator>();
 	}
 
 	void Update()
@@ -45,6 +42,14 @@ public class CharacterController : MonoBehaviour
 		} else {
 			float horizontalInput = Input.GetAxis("Horizontal");
 			float verticalInput = Input.GetAxis("Vertical");
+
+			if (horizontalInput != 0) {
+				Debug.Log("isRunning => true olarak değiştirildi");
+				anim.SetBool("isRunning", true);
+			} else {
+				Debug.Log("isRunning => false olarak değiştirildi");
+				anim.SetBool("isRunning", false);
+			}
 
 			movement = new Vector3(horizontalInput, 0f, verticalInput).normalized;
 		}
