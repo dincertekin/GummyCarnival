@@ -43,16 +43,14 @@ public class CharacterController : MonoBehaviour
 		} else {
 			float horizontalInput = Input.GetAxis("Horizontal");
 			float verticalInput = Input.GetAxis("Vertical");
-			
+
 			Vector3 moveDir = new Vector3(horizontalInput, 0f, verticalInput);
 			rb.velocity = moveDir * movementSpeed;
 
 			if (horizontalInput != 0) {
-				// Debug.Log("isRunning => true olarak değiştirildi");
-				anim.SetBool("isRunning", true);
+				anim.SetBool("isHorizontalRunning", true);
 			} else {
-				// Debug.Log("isRunning => false olarak değiştirildi");
-				anim.SetBool("isRunning", false);
+				anim.SetBool("isHorizontalRunning", false);
 			}
 
 			if (horizontalInput != 0 && horizontalInput < 0) {
