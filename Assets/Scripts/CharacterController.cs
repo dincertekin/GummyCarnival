@@ -5,15 +5,11 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
 	public float movementSpeed = 3f;
-	private Rigidbody rb;
-	private Vector3 movement;
+	public Rigidbody rb;
     public float interactionDistance = 3f;
 
-	// public string EffectTypes = [
-	// 	EffectType.Nane,
-	// 	EffectType.Bogurtlen,
-
-	// ];
+	public Animator anim;
+	public SpriteRenderer sr;
 
 	public Vector3[] boothCoords = new Vector3[] {
 		new Vector3(5.392f, 0.313f, -10.281f),
@@ -24,6 +20,8 @@ public class CharacterController : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
+		anim = transform.Find("Sprite").GetComponent<Animator>();
+		sr = transform.Find("Sprite").GetComponent<SpriteRenderer>();
 	}
 
 	void Update()
@@ -45,13 +43,23 @@ public class CharacterController : MonoBehaviour
 		} else {
 			float horizontalInput = Input.GetAxis("Horizontal");
 			float verticalInput = Input.GetAxis("Vertical");
+			
+			Vector3 moveDir = new Vector3(horizontalInput, 0f, verticalInput);
+			rb.velocity = moveDir * movementSpeed;
 
-			movement = new Vector3(horizontalInput, 0f, verticalInput).normalized;
+			if (horizontalInput != 0) {
+				// Debug.Log("isRunning => true olarak değiştirildi");
+				anim.SetBool("isRunning", true);
+			} else {
+				// Debug.Log("isRunning => false olarak değiştirildi");
+				anim.SetBool("isRunning", false);
+			}
+
+			if (horizontalInput != 0 && horizontalInput < 0) {
+				sr.flipX = true;
+			} else if (horizontalInput != 0 && horizontalInput > 0) {
+				sr.flipX = false;
+			}
 		}
-	}
-
-	void FixedUpdate()
-	{
-		rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
 	}
 }
