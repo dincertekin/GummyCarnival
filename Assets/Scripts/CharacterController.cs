@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-	private float movementSpeed = 3f;
-	private Rigidbody rb;
-	private Vector3 movement;
-    private float interactionDistance = 3f;
+	public float movementSpeed = 3f;
+	public Rigidbody rb;
+    public float interactionDistance = 3f;
 
-	private Animator anim;
+	public Animator anim;
+	public SpriteRenderer sr;
 
-	private Vector3[] boothCoords = new Vector3[] {
+	public Vector3[] boothCoords = new Vector3[] {
 		new Vector3(5.392f, 0.313f, -10.281f),
 		new Vector3(15.01f, 0.325f, -10.29f),
 		new Vector3(23.93f, 0.325f, -10.29f)
@@ -20,7 +20,8 @@ public class CharacterController : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
-		anim = GetComponent<Animator>();
+		anim = transform.Find("Sprite").GetComponent<Animator>();
+		sr = transform.Find("Sprite").GetComponent<SpriteRenderer>();
 	}
 
 	void Update()
@@ -42,21 +43,23 @@ public class CharacterController : MonoBehaviour
 		} else {
 			float horizontalInput = Input.GetAxis("Horizontal");
 			float verticalInput = Input.GetAxis("Vertical");
+			
+			Vector3 moveDir = new Vector3(horizontalInput, 0f, verticalInput);
+			rb.velocity = moveDir * movementSpeed;
 
 			if (horizontalInput != 0) {
-				Debug.Log("isRunning => true olarak değiştirildi");
+				// Debug.Log("isRunning => true olarak değiştirildi");
 				anim.SetBool("isRunning", true);
 			} else {
-				Debug.Log("isRunning => false olarak değiştirildi");
+				// Debug.Log("isRunning => false olarak değiştirildi");
 				anim.SetBool("isRunning", false);
 			}
 
-			movement = new Vector3(horizontalInput, 0f, verticalInput).normalized;
+			if (horizontalInput != 0 && horizontalInput < 0) {
+				sr.flipX = true;
+			} else if (horizontalInput != 0 && horizontalInput > 0) {
+				sr.flipX = false;
+			}
 		}
-	}
-
-	void FixedUpdate()
-	{
-		rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
 	}
 }
