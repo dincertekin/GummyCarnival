@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-	public float movementSpeed = 3f;
+	public float movementSpeed = 4f;
 	public Rigidbody rb;
     public float interactionDistance = 3f;
 
@@ -31,6 +31,7 @@ public class CharacterController : MonoBehaviour
 			if (Vector3.Distance(transform.position, boothCoords[0]) <= interactionDistance)
 			{
 				Debug.Log("Stand 1 yakınında E basıldı.");
+				// Minigame seçim ekranı?
 			}
 			else if (Vector3.Distance(transform.position, boothCoords[1]) <= interactionDistance)
 			{
