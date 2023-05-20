@@ -30,8 +30,4 @@ public class MainMenuItem : MonoBehaviour
 	public void openThePandorasBox() {
 		image.sprite = deetaSakizKutuAcik;
 	}
-
-	// public void closeThePandorasBox() {
-	// 	image.sprite = deetaSakizKutuKapali;
-	// }
 }

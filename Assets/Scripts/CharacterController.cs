@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour {
 	public float movementSpeed = 4f;
-	public Rigidbody rb;
     public float interactionDistance = 3f;
 
+	// [SerializeField] public float horizontalValue;
+	// [SerializeField] public float verticalValue;
+
+	public Rigidbody rb;
 	public Animator anim;
 	public SpriteRenderer sr;
 	private Vector3 movement;
+	private AudioSource footstepsSound;
 
 	private Vector3[] boothCoords = new [] {
 		new Vector3(5.95f, 1.58f, -10.5f),
@@ -26,6 +30,7 @@ public class CharacterController : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		anim = transform.Find("Sprite").GetComponent<Animator>();
 		sr = transform.Find("Sprite").GetComponent<SpriteRenderer>();
+		footstepsSound = GetComponent<AudioSource>();
 		isGettingQuest = false;
 		inBooth = 0;
 	}
@@ -56,6 +61,15 @@ public class CharacterController : MonoBehaviour {
 		} else {
 			movement.x = Input.GetAxis("Horizontal");
 			movement.z = Input.GetAxis("Vertical");
+
+			// horizontalValue = movement.x;
+			// verticalValue = movement.z;
+
+			if (movement.x != 0 || movement.z != 0) {
+				footstepsSound.enabled = true;
+			} else {
+				footstepsSound.enabled = false;
+			}
 
 			Vector3 moveDir = new Vector3(movement.x, 0f, movement.z);
 			rb.velocity = moveDir * movementSpeed;
