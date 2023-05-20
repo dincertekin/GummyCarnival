@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 533781499}
   - component: {fileID: 533781498}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 761573186}
   - component: {fileID: 761573185}
   - component: {fileID: 761573184}
+  - component: {fileID: 761573188}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -453,6 +454,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &761573188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761573183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da34b21d579e0f149b9dbaadb844a2b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deetaSakizKutuKapali: {fileID: 21300000, guid: 2d1fef0e162112a47a5f9dcc7b233c24, type: 3}
+  deetaSakizKutuAcik: {fileID: 21300000, guid: 719281176f245f64b970b09a338eb388, type: 3}
+  BubblegumBox: {fileID: 1631414425}
+  image: {fileID: 0}
 --- !u!1 &1631414425
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,8 +481,10 @@ GameObject:
   - component: {fileID: 1631414426}
   - component: {fileID: 1631414428}
   - component: {fileID: 1631414427}
+  - component: {fileID: 1631414430}
+  - component: {fileID: 1631414429}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BubblegumBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -488,8 +507,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 140}
-  m_SizeDelta: {x: 400, y: 250}
+  m_AnchoredPosition: {x: 0, y: 125}
+  m_SizeDelta: {x: 125, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1631414427
 MonoBehaviour:
@@ -511,7 +530,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2d1fef0e162112a47a5f9dcc7b233c24, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 33eb36a9866c4f54cb0383d1a36f2ca3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -529,3 +548,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631414425}
   m_CullTransparentMesh: 1
+--- !u!114 &1631414429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631414425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1631414430}
+          m_TargetAssemblyTypeName: MainMenuItem, Assembly-CSharp
+          m_MethodName: openThePandorasBox
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1631414430}
+          m_TargetAssemblyTypeName: MainMenuItem, Assembly-CSharp
+          m_MethodName: closeThePandorasBox
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1631414430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631414425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2593bd2a53ca70e499bed5758eb5606c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deetaSakizKutuKapali: {fileID: 21300000, guid: 33eb36a9866c4f54cb0383d1a36f2ca3, type: 3}
+  deetaSakizKutuAcik: {fileID: 21300000, guid: c17aada12d6d515439230ff2f1fd9ecd, type: 3}
