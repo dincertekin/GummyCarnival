@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 25322622}
   - component: {fileID: 25322621}
   m_Layer: 0
-  m_Name: "Day\u0131"
+  m_Name: Dayi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 38688567}
   - component: {fileID: 38688566}
   m_Layer: 0
-  m_Name: "G\xFCne\u015F"
+  m_Name: Gunes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 164518801}
   - component: {fileID: 164518803}
   m_Layer: 5
-  m_Name: "M\xFCzik Butonu"
+  m_Name: MuzikButonu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 214728447}
   - component: {fileID: 214728446}
   m_Layer: 0
-  m_Name: "Dondurmac\u0131"
+  m_Name: Dondurmaci
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1521,7 +1521,7 @@ GameObject:
   - component: {fileID: 640990228}
   - component: {fileID: 640990227}
   m_Layer: 0
-  m_Name: "Kovboy Kar\u0131"
+  m_Name: KovboyKari
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1874,7 +1874,7 @@ GameObject:
   - component: {fileID: 849837826}
   - component: {fileID: 849837828}
   m_Layer: 5
-  m_Name: Ses Butonu
+  m_Name: SesButonu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4292,7 +4292,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503239225}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -4773,6 +4773,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fdb77e118afba48b3504b96532518f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sesButonu: {fileID: 849837824}
+  muzikButonu: {fileID: 164518799}
+  sesAcikButonu: {fileID: 21300000, guid: 78b7a890629f4864a85ddec6f2d576d7, type: 3}
+  sesKapaliButonu: {fileID: 21300000, guid: 693754e4132cfad49a03c432a4bfb898, type: 3}
+  muzikAcikButonu: {fileID: 21300000, guid: 90aa81a8b05eee740b56b9029d5e752f, type: 3}
+  muzikKapaliButonu: {fileID: 21300000, guid: b75bbd357a1a5a045846c7a0350224f3, type: 3}
 --- !u!1 &1605078393
 GameObject:
   m_ObjectHideFlags: 0

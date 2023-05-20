@@ -6,9 +6,6 @@ public class CharacterController : MonoBehaviour {
 	public float movementSpeed = 4f;
     public float interactionDistance = 3f;
 
-	// [SerializeField] public float horizontalValue;
-	// [SerializeField] public float verticalValue;
-
 	public Rigidbody rb;
 	public Animator anim;
 	public SpriteRenderer sr;
@@ -61,9 +58,6 @@ public class CharacterController : MonoBehaviour {
 		} else {
 			movement.x = Input.GetAxis("Horizontal");
 			movement.z = Input.GetAxis("Vertical");
-
-			// horizontalValue = movement.x;
-			// verticalValue = movement.z;
 
 			if (movement.x != 0 || movement.z != 0) {
 				footstepsSound.enabled = true;
