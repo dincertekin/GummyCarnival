@@ -10,6 +10,7 @@ public class CharacterController : MonoBehaviour
 
 	public Animator anim;
 	public SpriteRenderer sr;
+	Vector3 movement;
 
 	public Vector3[] boothCoords = new Vector3[] {
 		new Vector3(5.392f, 0.313f, -10.281f),
@@ -36,29 +37,23 @@ public class CharacterController : MonoBehaviour
 			else if (Vector3.Distance(transform.position, boothCoords[1]) <= interactionDistance)
 			{
 				Debug.Log("Stand 2 yakınında E basıldı.");
+				// Minigame seçim ekranı?
 			}
 			else if (Vector3.Distance(transform.position, boothCoords[2]) <= interactionDistance)
 			{
 				Debug.Log("Stand 3 yakınında E basıldı.");
+				// Minigame seçim ekranı?
 			}
 		} else {
-			float horizontalInput = Input.GetAxis("Horizontal");
-			float verticalInput = Input.GetAxis("Vertical");
+			movement.x = Input.GetAxis("Horizontal");
+			movement.z = Input.GetAxis("Vertical");
 
-			Vector3 moveDir = new Vector3(horizontalInput, 0f, verticalInput);
+			Vector3 moveDir = new Vector3(movement.x, 0f, movement.z);
 			rb.velocity = moveDir * movementSpeed;
 
-			if (horizontalInput != 0) {
-				anim.SetBool("isHorizontalRunning", true);
-			} else {
-				anim.SetBool("isHorizontalRunning", false);
-			}
-
-			if (horizontalInput != 0 && horizontalInput < 0) {
-				sr.flipX = true;
-			} else if (horizontalInput != 0 && horizontalInput > 0) {
-				sr.flipX = false;
-			}
+			anim.SetFloat("Horizontal", movement.x);
+			anim.SetFloat("Vertical", movement.z);
+			anim.SetFloat("Speed", movement.sqrMagnitude);
 		}
 	}
 }

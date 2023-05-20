@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Booths
+    uniqueID: 255092497
+    locked: 0
+  - name: BoothManagers
+    uniqueID: 2250143523
+    locked: 0
+  - name: Character
+    uniqueID: 3099543343
+    locked: 0
