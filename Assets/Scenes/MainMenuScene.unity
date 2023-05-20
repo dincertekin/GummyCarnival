@@ -466,9 +466,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 761573183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da34b21d579e0f149b9dbaadb844a2b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 2593bd2a53ca70e499bed5758eb5606c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deetaSakizKutuKapali: {fileID: 21300000, guid: 33eb36a9866c4f54cb0383d1a36f2ca3, type: 3}
+  deetaSakizKutuAcik: {fileID: 21300000, guid: c17aada12d6d515439230ff2f1fd9ecd, type: 3}
 --- !u!1 &1626275745
 GameObject:
   m_ObjectHideFlags: 0
