@@ -24,13 +24,13 @@ public class UIMsgBoxController : MonoBehaviour {
                     TextValue.text = "Sicak havada serinlemenin en iyi yolu Maras dondurmasidir. Tabii ki burda dondurma yok! Mersinin yabanlarindan gelen yaban mersinli sakizi denemek icin oyuna var misin?";
                 }
                 else if (CharacterController.inBooth == 3) {
-                    TextValue.text = "3. stand yazisi";
+                    TextValue.text = "";
                 }
                 else if (CharacterController.inBooth == 4) {
-                    TextValue.text = "4. stand yazisi";
+                    TextValue.text = "Karpuz cekirdeklerinin o guzelim karpuzunu yerken araya girmesi kadar tat bozan bir oyuna var misin?";
                 }
                 else if (CharacterController.inBooth == 5) {
-                    TextValue.text = "5. stand yazisi";
+                    TextValue.text = "Salih abinin bana yaptigi yolluk kadar uzun soluklu bohohurgtlen sakizli kucuk oyuna katil!";
                 }
             }
         } else {
