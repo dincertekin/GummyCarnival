@@ -30,7 +30,7 @@ public class UIMsgBoxController : MonoBehaviour {
                     TextValue.text = "Karpuz cekirdeklerinin o guzelim karpuzunu yerken araya girmesi kadar tat bozan bir oyuna var misin?";
                 }
                 else if (CharacterController.inBooth == 5) {
-                    TextValue.text = "5. stand yazisi";
+                    TextValue.text = "Salih abinin bana yaptigi yolluk kadar uzun soluklu bohohurgtlen sakizli kucuk oyuna katil!";
                 }
             }
         } else {
