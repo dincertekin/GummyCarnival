@@ -13,36 +13,67 @@ public class CharacterController : MonoBehaviour
 	Vector3 movement;
 
 	public Vector3[] boothCoords = new Vector3[] {
-		new Vector3(5.392f, 0.313f, -10.281f),
-		new Vector3(15.01f, 0.325f, -10.29f),
-		new Vector3(23.93f, 0.325f, -10.29f)
+		new Vector3(5.95f, 1.58f, -10.5f),
+		new Vector3(14.95f, 1.58f, -10.5f),
+		new Vector3(23.97f, 1.58f, -10.5f),
+		new Vector3(33.16f, 1.58f, -10.5f),
+		new Vector3(41.55f, 1.58f, -10.5f)
 	};
+
+	static public bool isGettingQuest;
+	static public int inBooth;
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
 		anim = transform.Find("Sprite").GetComponent<Animator>();
 		sr = transform.Find("Sprite").GetComponent<SpriteRenderer>();
+		isGettingQuest = false;
+		inBooth = 0;
 	}
 
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.E))
 		{
-			if (Vector3.Distance(transform.position, boothCoords[0]) <= interactionDistance)
-			{
-				Debug.Log("Stand 1 yakınında E basıldı.");
-				// Minigame seçim ekranı?
-			}
-			else if (Vector3.Distance(transform.position, boothCoords[1]) <= interactionDistance)
-			{
-				Debug.Log("Stand 2 yakınında E basıldı.");
-				// Minigame seçim ekranı?
-			}
-			else if (Vector3.Distance(transform.position, boothCoords[2]) <= interactionDistance)
-			{
-				Debug.Log("Stand 3 yakınında E basıldı.");
-				// Minigame seçim ekranı?
+			if (isGettingQuest == true) {
+				isGettingQuest = false;
+			} else {
+				if (Vector3.Distance(transform.position, boothCoords[0]) <= interactionDistance)
+				{
+					Debug.Log("Stand 1 yakınında E basıldı.");
+					isGettingQuest = true;
+					inBooth = 1;
+					// Minigame seçim ekranı?
+				}
+				else if (Vector3.Distance(transform.position, boothCoords[1]) <= interactionDistance)
+				{
+					Debug.Log("Stand 2 yakınında E basıldı.");
+					isGettingQuest = true;
+					inBooth = 2;
+					// Minigame seçim ekranı?
+				}
+				else if (Vector3.Distance(transform.position, boothCoords[2]) <= interactionDistance)
+				{
+					Debug.Log("Stand 3 yakınında E basıldı.");
+					isGettingQuest = true;
+					inBooth = 3;
+					// Minigame seçim ekranı?
+				}
+				else if (Vector3.Distance(transform.position, boothCoords[3]) <= interactionDistance)
+				{
+					Debug.Log("Stand 4 yakınında E basıldı.");
+					isGettingQuest = true;
+					inBooth = 4;
+					// Minigame seçim ekranı?
+				}
+				else if (Vector3.Distance(transform.position, boothCoords[4]) <= interactionDistance)
+				{
+					Debug.Log("Stand 5 yakınında E basıldı.");
+					isGettingQuest = true;
+					inBooth = 5;
+					// Minigame seçim ekranı?
+				}
 			}
 		} else {
 			movement.x = Input.GetAxis("Horizontal");
