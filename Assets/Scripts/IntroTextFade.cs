@@ -40,6 +40,6 @@ public class IntroTextFade : MonoBehaviour {
             yield return null;
         }
 
-        SceneManager.LoadScene("MainGameScene");
+        SceneManager.LoadScene("MainMenuScene");
     }
 }
