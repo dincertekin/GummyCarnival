@@ -9,9 +9,9 @@ public class CharacterController : MonoBehaviour {
 
 	public Animator anim;
 	public SpriteRenderer sr;
-	Vector3 movement;
+	private Vector3 movement;
 
-	public Vector3[] boothCoords = new Vector3[] {
+	private Vector3[] boothCoords = new [] {
 		new Vector3(5.95f, 1.58f, -10.5f),
 		new Vector3(14.95f, 1.58f, -10.5f),
 		new Vector3(23.97f, 1.58f, -10.5f),
@@ -34,25 +34,21 @@ public class CharacterController : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.E)) {
 			if (isGettingQuest == true) {
 				isGettingQuest = false;
+				inBooth = 0;
 			} else {
 				if (Vector3.Distance(transform.position, boothCoords[0]) <= interactionDistance) {
-					Debug.Log("Stand 1 yakınında E basıldı.");
 					isGettingQuest = true;
 					inBooth = 1;
 				} else if (Vector3.Distance(transform.position, boothCoords[1]) <= interactionDistance) {
-					Debug.Log("Stand 2 yakınında E basıldı.");
 					isGettingQuest = true;
 					inBooth = 2;
 				} else if (Vector3.Distance(transform.position, boothCoords[2]) <= interactionDistance) {
-					Debug.Log("Stand 3 yakınında E basıldı.");
 					isGettingQuest = true;
 					inBooth = 3;
 				} else if (Vector3.Distance(transform.position, boothCoords[3]) <= interactionDistance) {
-					Debug.Log("Stand 4 yakınında E basıldı.");
 					isGettingQuest = true;
 					inBooth = 4;
 				} else if (Vector3.Distance(transform.position, boothCoords[4]) <= interactionDistance) {
-					Debug.Log("Stand 5 yakınında E basıldı.");
 					isGettingQuest = true;
 					inBooth = 5;
 				}

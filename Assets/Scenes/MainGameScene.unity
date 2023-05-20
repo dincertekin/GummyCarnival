@@ -459,7 +459,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42305038}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -4318,12 +4318,8 @@ MonoBehaviour:
   movementSpeed: 4
   rb: {fileID: 1596902715}
   interactionDistance: 3
-  anim: {fileID: 0}
+  anim: {fileID: 872679324}
   sr: {fileID: 872679323}
-  boothCoords:
-  - {x: 5.392, y: 0.313, z: -10.281}
-  - {x: 15.01, y: 0.325, z: -10.29}
-  - {x: 23.93, y: 0.325, z: -10.29}
 --- !u!1 &1605078393
 GameObject:
   m_ObjectHideFlags: 0
