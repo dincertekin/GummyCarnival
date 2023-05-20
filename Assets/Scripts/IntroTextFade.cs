@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class IntroTextFadeOut : MonoBehaviour
+public class IntroTextFade : MonoBehaviour
 {
     public Text introText;
     public float fadeDuration = 2f;
