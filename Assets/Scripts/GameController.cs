@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameController : MonoBehaviour
-{
+public class GameController : MonoBehaviour {
 	static public bool musicMuted = false;
 	static public bool soundsMuted = false;
-	private AudioSource[] sources;
+	static public AudioSource[] sources;
 	public GameObject sesButonu;
 	public GameObject muzikButonu;
 	public Sprite sesAcikButonu;
@@ -15,19 +14,16 @@ public class GameController : MonoBehaviour
 	public Sprite muzikAcikButonu;
 	public Sprite muzikKapaliButonu;
 
-	void Start()
-	{
+	void Start() {
 		sources = GetComponents<AudioSource>();
-		for (int i = 0; i < sources.Length; i++)
-		{
+		for (int i = 0; i < sources.Length; i++) {
 			sources[i].mute = false;
 		}
 		sesButonu.GetComponent<Image>().sprite = sesAcikButonu;
 		muzikButonu.GetComponent<Image>().sprite = muzikAcikButonu;
 	}
 
-	void Update()
-	{
+	void Update() {
 		sources[0].mute = soundsMuted;
 		sources[1].mute = musicMuted;
 	}
@@ -50,5 +46,14 @@ public class GameController : MonoBehaviour
 			soundsMuted = false;
 			sesButonu.GetComponent<Image>().sprite = sesAcikButonu;
 		}
+	}
+
+	public static void setMusicVolume(float volumeValue) {
+		sources[1].volume = volumeValue;
+	}
+
+	public static void setSoundsVolume(float volumeValue) {
+		Debug.Log("TEST TDSSD FDSDS FSD" + sources[0].volume);
+		sources[0].volume = volumeValue;
 	}
 }
