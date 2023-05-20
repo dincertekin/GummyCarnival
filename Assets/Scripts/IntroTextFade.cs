@@ -4,25 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class IntroTextFade : MonoBehaviour
-{
+public class IntroTextFade : MonoBehaviour {
     public Text introText;
     public float fadeDuration = 2f;
 
-    private void Start()
-    {
+    private void Start() {
         introText.color = Color.clear;
         StartCoroutine(FadeInText());
     }
 
-    private System.Collections.IEnumerator FadeInText()
-    {
+    private System.Collections.IEnumerator FadeInText() {
         float elapsedTime = 0f;
         Color initialColor = Color.clear;
         Color targetColor = Color.white;
 
-        while (elapsedTime < 1f)
-        {
+        while (elapsedTime < 1f) {
             elapsedTime += Time.deltaTime / fadeDuration;
             introText.color = Color.Lerp(initialColor, targetColor, elapsedTime);
             yield return null;
@@ -33,14 +29,12 @@ public class IntroTextFade : MonoBehaviour
         StartCoroutine(FadeOutText());
     }
 
-    private System.Collections.IEnumerator FadeOutText()
-    {
+    private System.Collections.IEnumerator FadeOutText() {
         float elapsedTime = 0f;
         Color initialColor = Color.white;
         Color targetColor = Color.clear;
 
-        while (elapsedTime < 1f)
-        {
+        while (elapsedTime < 1f) {
             elapsedTime += Time.deltaTime / fadeDuration;
             introText.color = Color.Lerp(initialColor, targetColor, elapsedTime);
             yield return null;
