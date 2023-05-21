@@ -10,7 +10,16 @@ public class CharacterController : MonoBehaviour {
 	public Animator anim;
 	public SpriteRenderer sr;
 	private Vector3 movement;
-	private AudioSource footstepsSound;
+	private AudioSource footsteps;
+
+	static public bool isGettingQuest;
+	static public int inBooth;
+
+	static public int hasGotMintGum = 0;
+	static public int hasGotStrawberryGum = 0;
+	static public int hasGotMelonGum = 0;
+	static public int hasGotBlueberryGum = 0;
+	static public int hasGotBlackberryGum = 0;
 
 	private Vector3[] boothCoords = new [] {
 		new Vector3(5.95f, 1.58f, -10.5f),
@@ -20,14 +29,11 @@ public class CharacterController : MonoBehaviour {
 		new Vector3(41.55f, 1.58f, -10.5f)
 	};
 
-	static public bool isGettingQuest;
-	static public int inBooth;
-
 	void Start() {
 		rb = GetComponent<Rigidbody>();
-		anim = transform.Find("Sprite").GetComponent<Animator>();
-		sr = transform.Find("Sprite").GetComponent<SpriteRenderer>();
-		footstepsSound = GetComponent<AudioSource>();
+		anim = transform.Find("playerSprite").GetComponent<Animator>();
+		sr = transform.Find("playerSprite").GetComponent<SpriteRenderer>();
+		footsteps = GetComponent<AudioSource>();
 		isGettingQuest = false;
 		inBooth = 0;
 	}
@@ -60,13 +66,13 @@ public class CharacterController : MonoBehaviour {
 			movement.z = Input.GetAxis("Vertical");
 
 			if (movement.x != 0 || movement.z != 0) {
-				footstepsSound.enabled = true;
+				footsteps.enabled = true;
 			} else {
-				footstepsSound.enabled = false;
+				footsteps.enabled = false;
 			}
 
-			Vector3 moveDir = new Vector3(movement.x, 0f, movement.z);
-			rb.velocity = moveDir * movementSpeed;
+			Vector3 moveDirection = new Vector3(movement.x, 0f, movement.z);
+			rb.velocity = moveDirection * movementSpeed;
 
 			anim.SetFloat("Horizontal", movement.x);
 			anim.SetFloat("Vertical", movement.z);

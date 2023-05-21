@@ -5,55 +5,76 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 	static public bool musicMuted = false;
-	static public bool soundsMuted = false;
-	static public AudioSource[] sources;
-	public GameObject sesButonu;
-	public GameObject muzikButonu;
-	public Sprite sesAcikButonu;
-	public Sprite sesKapaliButonu;
-	public Sprite muzikAcikButonu;
-	public Sprite muzikKapaliButonu;
+	static public bool soundMuted = false;
+	static public bool gamePaused = false;
+
+	static public AudioSource[] audioSources;
+
+	public GameObject soundToggleButton;
+	public GameObject musicToggleButton;
+
+	public Sprite soundButtonON;
+	public Sprite soundButtonOFF;
+	public Sprite musicButtonON;
+	public Sprite musicButtonOFF;
 
 	void Start() {
-		sources = GetComponents<AudioSource>();
-		for (int i = 0; i < sources.Length; i++) {
-			sources[i].mute = false;
+		audioSources = GetComponents<AudioSource>();
+		for (int i = 0; i < audioSources.Length; i++) {
+			audioSources[i].mute = false;
 		}
-		sesButonu.GetComponent<Image>().sprite = sesAcikButonu;
-		muzikButonu.GetComponent<Image>().sprite = muzikAcikButonu;
+		soundToggleButton.GetComponent<Image>().sprite = soundButtonON;
+		musicToggleButton.GetComponent<Image>().sprite = musicButtonON;
 	}
 
 	void Update() {
-		sources[0].mute = soundsMuted;
-		sources[1].mute = musicMuted;
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (!GameController.gamePaused) {
+                GameController.pauseGame();
+            } else {
+                GameController.resumeGame();
+            }
+        }
+		
+		audioSources[0].mute = soundMuted;
+		audioSources[1].mute = musicMuted;
 	}
 
 	public void muteMusic() {
 		if (musicMuted == false) {
 			musicMuted = true;
-			muzikButonu.GetComponent<Image>().sprite = muzikKapaliButonu;
+			musicToggleButton.GetComponent<Image>().sprite = musicButtonOFF;
 		} else {
 			musicMuted = false;
-			muzikButonu.GetComponent<Image>().sprite = muzikAcikButonu;
+			musicToggleButton.GetComponent<Image>().sprite = musicButtonON;
 		}
 	}
 
 	public void muteSounds() {
-		if (soundsMuted == false) {
-			soundsMuted = true;
-			sesButonu.GetComponent<Image>().sprite = sesKapaliButonu;
+		if (soundMuted == false) {
+			soundMuted = true;
+			soundToggleButton.GetComponent<Image>().sprite = soundButtonOFF;
 		} else {
-			soundsMuted = false;
-			sesButonu.GetComponent<Image>().sprite = sesAcikButonu;
+			soundMuted = false;
+			soundToggleButton.GetComponent<Image>().sprite = soundButtonON;
 		}
 	}
 
 	public static void setMusicVolume(float volumeValue) {
-		sources[1].volume = volumeValue;
+		audioSources[1].volume = volumeValue;
 	}
 
-	public static void setSoundsVolume(float volumeValue) {
-		Debug.Log("TEST TDSSD FDSDS FSD" + sources[0].volume);
-		sources[0].volume = volumeValue;
+	public static void setSoundVolume(float volumeValue) {
+		audioSources[0].volume = volumeValue;
+	}
+
+	public static void pauseGame() {
+		gamePaused = true;
+		Time.timeScale = 0;
+	}
+
+	public static void resumeGame() {
+		gamePaused = false;
+		Time.timeScale = 1;
 	}
 }
