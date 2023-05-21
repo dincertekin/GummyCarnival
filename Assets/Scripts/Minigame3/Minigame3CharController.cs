@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Minigame2CharController : MonoBehaviour {
+public class Minigame3CharController : MonoBehaviour {
     private Rigidbody2D rb;
     private float movementSpeed = 3f;
     
@@ -12,10 +12,11 @@ public class Minigame2CharController : MonoBehaviour {
     private float timeLeft = 59;
     private bool playerDidObjective = false;
 
+    public GameObject ball;
+    public Rigidbody2D ballRigidbody;
     public GameObject successText;
     public Text successTextComponent;
 
-    public GameObject Melon;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -26,20 +27,19 @@ public class Minigame2CharController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.R)) {
             successTextComponent.enabled = false;
             if (playerDidObjective == true) {
-                CharacterController.hasGotMelonGum = 1;
+                CharacterController.hasGotMintGum = 1;
                 SceneManager.LoadScene("MainGameScene");
             } else {
                 GameController.resumeGame();
                 timeLeft = 59;
                 playerScore = 0;
-                Destroy(GameObject.Find("Melon(Clone)"));
-                Instantiate(Melon, new Vector3(3.268725f,  Random.Range(-2.36f, -4.67f), 0f), new Quaternion(0f, 0f, 0f, 0f));
+                GameObject.Find("Ball").transform.position = new Vector3(0f, 3.40f, 0f);
             }
         }
 
         if (timeLeft <= 0) {
             GameObject.Find("timeText").GetComponent<Text>().text = "00:00";
-            if (playerScore >= 50) {
+            if (playerScore >= 30) {
                 playerDidObjective = true;
                 GameController.pauseGame();
                 successTextComponent.enabled = true;
@@ -60,18 +60,16 @@ public class Minigame2CharController : MonoBehaviour {
         }
 
         float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
 
-        Vector2 moveDirection = new Vector2(horizontal, vertical);
+        Vector2 moveDirection = new Vector2(horizontal, 0f);
         rb.velocity = moveDirection * movementSpeed;
     }
 
-    void OnTriggerEnter2D(Collider2D hitInfo) {
-        if (hitInfo.name == "Melon(Clone)") {
+    void OnCollisionEnter2D(Collision2D hitInfo) {
+        if (hitInfo.gameObject.name == "Ball") {
             playerScore += 1;
-            GameObject.Find("scoreText").GetComponent<Text>().text = playerScore.ToString()+"/50";
-            Destroy(GameObject.Find("Melon(Clone)"));
-            Instantiate(Melon, new Vector3(3.268725f,  Random.Range(-2.36f, -4.67f), 0f), new Quaternion(0f, 0f, 0f, 0f));
+            GameObject.Find("scoreText").GetComponent<Text>().text = playerScore.ToString()+"/30";
+            ballRigidbody.velocity = ball.transform.up * 10f;
         }
     }
 }

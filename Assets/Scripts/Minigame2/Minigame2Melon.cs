@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Minigame2Melon : MonoBehaviour {
     private Rigidbody2D rb;
-    private float speed = 3f;
+    private float speed = 12f;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
