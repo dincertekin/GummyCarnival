@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIMsgBoxController : MonoBehaviour {
 	private Canvas CanvasObject;
@@ -35,6 +36,16 @@ public class UIMsgBoxController : MonoBehaviour {
 			}
 		} else {
 			CanvasObject.enabled = false;
+		}
+	}
+
+	public static void onClick() {
+		if (CharacterController.isGettingQuest == true) {
+			if (CharacterController.inBooth != 0) {
+				if (CharacterController.inBooth == 1) {
+					SceneManager.LoadScene("Minigame1Scene");
+				}
+			}
 		}
 	}
 }
