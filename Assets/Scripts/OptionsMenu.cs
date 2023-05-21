@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OptionsMenu : MonoBehaviour {
 	public GameObject soundSlider;
@@ -13,7 +14,11 @@ public class OptionsMenu : MonoBehaviour {
 	}
 
 	public void sendMusicVolume() {
-		Debug.Log(musicSlider.GetComponent<Slider>().value);
+		Debug.Log(musicSlider.GetComponent<Slider>().value.GetType().Name);
 		GameController.setMusicVolume(musicSlider.GetComponent<Slider>().value);
+	}
+
+	public void backToMainMenu() {
+		SceneManager.LoadScene("MainMenuScene");
 	}
 }

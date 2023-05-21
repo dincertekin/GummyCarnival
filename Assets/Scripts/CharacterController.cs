@@ -20,7 +20,9 @@ public class CharacterController : MonoBehaviour {
 	static public int hasGotBlueberryGum = 0;
 	static public int hasGotStrawberryGum = 0;
 	static public int hasGotMelonGum = 0;
-	static public int hasGotBlackberryGum = 0;
+	// static public int hasGotBlackberryGum = 0;
+
+	static public int gameEnd = 0;
 
 	private Vector3[] boothCoords = new [] {
 		new Vector3(5.95f, 1.58f, -10.5f),
@@ -31,6 +33,7 @@ public class CharacterController : MonoBehaviour {
 	};
 
 	void Start() {
+		GameController.resumeGame();
 		rb = GetComponent<Rigidbody>();
 		anim = transform.Find("playerSprite").GetComponent<Animator>();
 		sr = transform.Find("playerSprite").GetComponent<SpriteRenderer>();
@@ -44,7 +47,11 @@ public class CharacterController : MonoBehaviour {
 		GameObject.Find("blueberryGumText").GetComponent<Text>().text = hasGotBlueberryGum.ToString()+"x";
 		GameObject.Find("strawberryGumText").GetComponent<Text>().text = hasGotStrawberryGum.ToString()+"x";
 		GameObject.Find("melonGumText").GetComponent<Text>().text = hasGotMelonGum.ToString()+"x";
-		GameObject.Find("blackberryGumText").GetComponent<Text>().text = hasGotBlackberryGum.ToString()+"x";
+		// GameObject.Find("blackberryGumText").GetComponent<Text>().text = hasGotBlackberryGum.ToString()+"x";
+
+		if (hasGotMintGum == 1 && hasGotBlueberryGum == 1 && hasGotStrawberryGum == 1 && hasGotMelonGum == 1) { // hasGotBlackBerryGum
+			gameEnd = 1;
+		}
 		
 		if (Input.GetKeyDown(KeyCode.E)) {
 			if (isGettingQuest == true) {

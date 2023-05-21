@@ -696,8 +696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2593bd2a53ca70e499bed5758eb5606c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deetaGumBoxOff: {fileID: 0}
-  deetaGumBoxOn: {fileID: 0}
+  deetaGumBoxOff: {fileID: 21300000, guid: 33eb36a9866c4f54cb0383d1a36f2ca3, type: 3}
+  deetaGumBoxOn: {fileID: 21300000, guid: c17aada12d6d515439230ff2f1fd9ecd, type: 3}
 --- !u!1 &1901451353
 GameObject:
   m_ObjectHideFlags: 0

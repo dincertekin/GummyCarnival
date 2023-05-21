@@ -28,14 +28,6 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (!GameController.gamePaused) {
-                GameController.pauseGame();
-            } else {
-                GameController.resumeGame();
-            }
-        }
-		
 		audioSources[0].mute = soundMuted;
 		audioSources[1].mute = musicMuted;
 	}
