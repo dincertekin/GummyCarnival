@@ -9,11 +9,13 @@ public class CharacterController2D : MonoBehaviour {
     private SpriteRenderer sr;
     private Animator anim;
     private AudioSource[] sources;
+
     private float movementSpeed = 3f;
     static public int playerScore = 0;
-    public GameObject enemyPrefab;
     private float timeLeft = 59;
     private bool playerDidObjective = false;
+
+    public GameObject enemyPrefab;
     public GameObject successText;
     public Text successTextComponent;
 

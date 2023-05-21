@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterController : MonoBehaviour {
 	public float movementSpeed = 4f;
@@ -16,9 +17,9 @@ public class CharacterController : MonoBehaviour {
 	static public int inBooth;
 
 	static public int hasGotMintGum = 0;
+	static public int hasGotBlueberryGum = 0;
 	static public int hasGotStrawberryGum = 0;
 	static public int hasGotMelonGum = 0;
-	static public int hasGotBlueberryGum = 0;
 	static public int hasGotBlackberryGum = 0;
 
 	private Vector3[] boothCoords = new [] {
@@ -39,6 +40,12 @@ public class CharacterController : MonoBehaviour {
 	}
 
 	void Update() {
+		GameObject.Find("mintGumText").GetComponent<Text>().text = hasGotMintGum.ToString()+"x";
+		GameObject.Find("blueberryGumText").GetComponent<Text>().text = hasGotBlueberryGum.ToString()+"x";
+		GameObject.Find("strawberryGumText").GetComponent<Text>().text = hasGotStrawberryGum.ToString()+"x";
+		GameObject.Find("melonGumText").GetComponent<Text>().text = hasGotMelonGum.ToString()+"x";
+		GameObject.Find("blackberryGumText").GetComponent<Text>().text = hasGotBlackberryGum.ToString()+"x";
+		
 		if (Input.GetKeyDown(KeyCode.E)) {
 			if (isGettingQuest == true) {
 				isGettingQuest = false;

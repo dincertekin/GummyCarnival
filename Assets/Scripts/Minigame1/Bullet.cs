@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Bullet : MonoBehaviour {
     public Rigidbody2D rb;
     public float speed = 20f;
+    
     public GameObject enemyPrefab;
 
     void Start() {

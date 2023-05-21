@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
     public Sprite deetaGumBoxOff;
 	public Sprite deetaGumBoxOn;
+	
 	private Image image;
 
     void Start() {
