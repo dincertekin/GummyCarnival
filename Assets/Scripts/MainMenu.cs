@@ -5,8 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
-    public Sprite deetaSakizKutuKapali;
-	public Sprite deetaSakizKutuAcik;
+    public Sprite deetaGumBoxOff;
+	public Sprite deetaGumBoxOn;
 	private Image image;
 
     void Start() {
@@ -14,11 +14,11 @@ public class MainMenu : MonoBehaviour {
 	}
 
     public void openThePandorasBox() {
-        image.sprite = deetaSakizKutuAcik;
+        image.sprite = deetaGumBoxOn;
     }
 
     public void closeThePandorasBox() {
-        image.sprite = deetaSakizKutuKapali;
+        image.sprite = deetaGumBoxOff;
     }
 
     public void playButtonClicked() {
